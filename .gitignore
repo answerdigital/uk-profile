@@ -1,3 +1,4 @@
 .ve
 docs/_build
 *.pyc
+.hsds-profile-wizard

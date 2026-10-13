@@ -1,0 +1,129 @@
+name: Generate profile schemas (HSDS Profile Wizard)
+
+on:
+  workflow_dispatch:
+    inputs:
+      hsds_branch:
+        description: Branch of the HSDS specification to base the profile on
+        required: true
+        default: "3.0"
+      wizard_ref:
+        description: Branch or tag of openreferral/hsds-profile-wizard to use
+        required: true
+        default: main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: hsds-profile-wizard
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    env:
+      HSDS_BRANCH: ${{ inputs.hsds_branch }}
+      WIZARD_REF: ${{ inputs.wizard_ref }}
+      WIZARD_IMAGE: hsds-profile-wizard:local
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: Clone hsds-profile-wizard
+        run: |
+          WIZARD_DIR="$RUNNER_TEMP/hsds-profile-wizard"
+          echo "WIZARD_DIR=$WIZARD_DIR" >> "$GITHUB_ENV"
+          git clone --depth 1 --branch "$WIZARD_REF" \
+            https://github.com/openreferral/hsds-profile-wizard.git "$WIZARD_DIR"
+          echo "WIZARD_SHA=$(git -C "$WIZARD_DIR" rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: Build Docker image
+        run: |
+          cat > "$WIZARD_DIR/Dockerfile" <<'EOF'
+          FROM python:3.12-slim
+          COPY . /opt/hsds-profile-wizard
+          RUN pip install --no-cache-dir -r /opt/hsds-profile-wizard/requirements.txt /opt/hsds-profile-wizard
+          WORKDIR /profile
+          ENTRYPOINT ["hsds-profile-wizard"]
+          EOF
+          docker build -t "$WIZARD_IMAGE" "$WIZARD_DIR"
+
+      - name: Run hsds-profile-wizard generate
+        run: |
+          # The wizard requires an initialised cache directory (normally created by `init`).
+          mkdir -p .hsds-profile-wizard
+          [ -f .hsds-profile-wizard/metadata.json ] || echo '{}' > .hsds-profile-wizard/metadata.json
+
+          # `generate` deletes and recreates schema/, so preserve the compiled schemas,
+          # which are produced by separate tooling.
+          if [ -d schema/compiled ]; then
+            cp -a schema/compiled "$RUNNER_TEMP/schema-compiled"
+          fi
+
+          docker run --rm \
+            --user "$(id -u):$(id -g)" \
+            -v "$GITHUB_WORKSPACE:/profile" \
+            "$WIZARD_IMAGE" generate --branch "$HSDS_BRANCH" 2>&1 | tee "$RUNNER_TEMP/wizard.log"
+
+          if [ -d "$RUNNER_TEMP/schema-compiled" ]; then
+            cp -a "$RUNNER_TEMP/schema-compiled" schema/compiled
+          fi
+
+          {
+            echo "## HSDS Profile Wizard"
+            echo "- HSDS branch: \`$HSDS_BRANCH\`"
+            echo "- hsds-profile-wizard: \`$WIZARD_REF\` (\`$WIZARD_SHA\`)"
+            echo
+            echo "### Changed files"
+            echo '```'
+            git status --short -- schema
+            echo '```'
+            if [ -s "$RUNNER_TEMP/wizard.log" ]; then
+              echo "### Wizard output"
+              echo '```'
+              cat "$RUNNER_TEMP/wizard.log"
+              echo '```'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Create pull request
+        id: cpr
+        uses: peter-evans/create-pull-request@v8
+        with:
+          base: main
+          branch: feature/hsds-profile-wizard-${{ github.run_id }}
+          delete-branch: true
+          add-paths: schema/**
+          commit-message: |
+            Regenerate profile schemas with hsds-profile-wizard
+
+            HSDS branch: ${{ inputs.hsds_branch }}
+            hsds-profile-wizard: ${{ inputs.wizard_ref }} (${{ env.WIZARD_SHA }})
+          title: "Regenerate profile schemas with hsds-profile-wizard (HSDS ${{ inputs.hsds_branch }})"
+          body: |
+            Automated changes produced by running [hsds-profile-wizard](https://github.com/openreferral/hsds-profile-wizard) `generate` in Docker against this repository's profile.
+
+            - HSDS branch: `${{ inputs.hsds_branch }}`
+            - hsds-profile-wizard: `${{ inputs.wizard_ref }}` (${{ env.WIZARD_SHA }})
+            - Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            `schema/compiled` is preserved as-is; it is not produced by this tool.
+
+      - name: Report result
+        env:
+          PR_URL: ${{ steps.cpr.outputs.pull-request-url }}
+          PR_OPERATION: ${{ steps.cpr.outputs.pull-request-operation }}
+        run: |
+          if [ -n "$PR_URL" ]; then
+            echo "Pull request $PR_OPERATION: $PR_URL" | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No schema changes were generated; no pull request created." | tee -a "$GITHUB_STEP_SUMMARY"
+          fi

@@ -1,0 +1,8 @@
+{
+  "title": "Open Referral UK Profile",
+  "base_url": "https://github.com/openreferral/uk-profile",
+  "openapi_url": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/openapi.json",
+  "version": "main",
+  "description": "Open Referral UK Profile for Version 3",
+  "docs_url": ""
+}
