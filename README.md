@@ -209,14 +209,14 @@ This will run the JSON Merge Patch to produce the schemas under the `schema` dir
 
 #### Generating schemas with the HSDS Profile Wizard GitHub Action
 
-The [`Generate profile schemas (HSDS Profile Wizard)`](.github/workflows/hsds-profile-wizard.yml) workflow can be run manually from the repository's **Actions** tab. It clones [hsds-profile-wizard](https://github.com/openreferral/hsds-profile-wizard), builds it into a Docker image, and runs `hsds-profile-wizard generate` against this repository using the metadata in [`profile.json`](profile.json) and the patches in `profile/`. If the tool produces any changes under `schema/`, they are committed to a new `feature/hsds-profile-wizard-<run id>` branch and a pull request into `main` is opened.
+The [`Generate profile schemas (HSDS Profile Wizard)`](.github/workflows/hsds-profile-wizard.yml) workflow can be run manually from the repository's **Actions** tab. It clones [hsds-profile-wizard](https://github.com/openreferral/hsds-profile-wizard), builds it into a Docker image, and runs `hsds-profile-wizard generate` against this repository using the metadata in [`profile.json`](profile.json) and the patches in `profile/`. If the tool produces any changes under `schema/`, they are committed to a new `feature/hsds-profile-wizard-<run id>-<attempt>` branch, which you can review and open a pull request from manually.
 
 Inputs:
 
 * `hsds_branch` &ndash; the HSDS specification branch to base the profile on (default `3.0`).
 * `wizard_ref` &ndash; the branch or tag of hsds-profile-wizard to use (default `main`).
 
-`schema/compiled` is not produced by the wizard and is left unchanged. For the workflow to open pull requests, **Settings &rarr; Actions &rarr; General &rarr; Workflow permissions &rarr; "Allow GitHub Actions to create and approve pull requests"** must be enabled.
+`schema/compiled` is not produced by the wizard and is left unchanged.
 
 ### Preparing documentation
 
