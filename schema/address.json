@@ -135,6 +135,15 @@
       "items": {
         "$ref": "attribute.json"
       }
+    },
+    "metadata": {
+      "name": "metadata",
+      "type": "array",
+      "title": "Metadata",
+      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
+      "items": {
+        "$ref": "metadata.json"
+      }
     }
   },
   "required": [
@@ -145,5 +154,6 @@
     "postal_code",
     "country",
     "address_type"
-  ]
+  ],
+  "$id": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/address.json"
 }
