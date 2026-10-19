@@ -169,6 +169,27 @@
       },
       "example": "Following COVID-19 we have moved most of our counselling sessions online. Please contact the reception if you require further information."
     },
+    "eligibility_description": {
+      "name": "eligibility_description",
+      "type": "string",
+      "title": "Eligibility Description",
+      "description": "A free text description of the type of person for whom this service is intended.",
+      "constraints": {
+        "unique": false
+      },
+      "example": "This service is intended for all people aged 12 and over who require counselling services in the MyCity area",
+      "core": "Y"
+    },
+    "application_process": {
+      "name": "application_process",
+      "type": "string",
+      "title": "Application Process",
+      "description": "A free text description of the steps needed to access this service. Specifies whether a referral is required.",
+      "constraints": {
+        "unique": false
+      },
+      "example": "If you are an NHS patient please ask your GP for a referral letter, we will then be in touch with you directly. If you are not an NHS patient you should ring our reception to arrange an appointment"
+    },
     "last_modified": {
       "name": "last_modified",
       "type": "string",
