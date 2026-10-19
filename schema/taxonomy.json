@@ -62,6 +62,15 @@
       },
       "example": "version"
     },
+    "metadata": {
+      "name": "metadata",
+      "type": "array",
+      "title": "Metadata",
+      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
+      "items": {
+        "$ref": "metadata.json"
+      }
+    },
     "taxonomy_terms": {
       "name": "taxonomy_terms",
       "type": "array",
@@ -76,5 +85,6 @@
     "id",
     "name",
     "description"
-  ]
+  ],
+  "$id": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/taxonomy.json"
 }

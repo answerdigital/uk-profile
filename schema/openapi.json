@@ -68,7 +68,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/compiled/service.json"
+                  "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/service.json"
                 }
               }
             }
@@ -119,20 +119,55 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "contents": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/compiled/service_list.json"
-                      }
-                    }
-                  },
                   "allOf": [
                     {
                       "$ref": "#/components/schemas/Page"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "contents": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/service_list.json"
+                          }
+                        }
+                      },
+                      "required": [
+                        "contents"
+                      ]
                     }
                   ]
                 }
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Page"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "contents": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "service_list.json"
+                        }
+                      }
+                    },
+                    "required": [
+                      "contents"
+                    ]
+                  }
+                ]
               }
             }
           }
@@ -188,17 +223,23 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "contents": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/taxonomy.json"
-                      }
-                    }
-                  },
                   "allOf": [
                     {
                       "$ref": "#/components/schemas/Page"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "contents": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/taxonomy.json"
+                          }
+                        }
+                      },
+                      "required": [
+                        "contents"
+                      ]
                     }
                   ]
                 }
@@ -223,7 +264,7 @@
       "get": {
         "description": "Full information on a taxonomy term.",
         "summary": "Full information on a taxonomy term.",
-        "operationId": "getPaginatedListOfTaxonomyTerms",
+        "operationId": "getTaxonomyTermById",
         "responses": {
           "200": {
             "description": "Full information on a taxonomy term.",
@@ -242,7 +283,7 @@
       "get": {
         "description": "Full information on a taxonomy term",
         "summary": "Paginated listing of taxonomy terms",
-        "operationId": "getTaxonomyTermById",
+        "operationId": "getPaginatedListOfTaxonomyTerms",
         "parameters": [
           {
             "$ref": "#/components/parameters/page"
@@ -257,17 +298,23 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "contents": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/taxonomy_term.json"
-                      }
-                    }
-                  },
                   "allOf": [
                     {
                       "$ref": "#/components/schemas/Page"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "contents": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/taxonomy_term.json"
+                          }
+                        }
+                      },
+                      "required": [
+                        "contents"
+                      ]
                     }
                   ]
                 }
@@ -299,7 +346,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/compiled/service.json"
+                  "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/service.json"
                 }
               }
             }
@@ -356,17 +403,23 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "contents": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/compiled/service_at_location_list.json"
-                      }
-                    }
-                  },
                   "allOf": [
                     {
                       "$ref": "#/components/schemas/Page"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "contents": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/service_at_location_list.json"
+                          }
+                        }
+                      },
+                      "required": [
+                        "contents"
+                      ]
                     }
                   ]
                 }
@@ -384,7 +437,7 @@
         "properties": {
           "total_items": {
             "type": "integer",
-            "description": "The total number of entities (e.g. services, organizations) returned"
+            "description": "Count of total results."
           },
           "total_pages": {
             "type": "integer",
@@ -392,23 +445,23 @@
           },
           "page_number": {
             "type": "integer",
-            "description": "The number of the current page"
+            "description": "Current page number."
           },
           "size": {
             "type": "integer",
-            "description": "The number of entities in the current page."
+            "description": "Size of current page."
           },
           "first_page": {
             "type": "boolean",
-            "description": "A Boolean value indicating if this is the first page"
+            "description": "Is this page the first page."
           },
           "last_page": {
             "type": "boolean",
-            "description": "A Boolean value indicating if this is the last page"
+            "description": "Is this page the last page."
           },
           "empty": {
             "type": "boolean",
-            "description": "A Boolean value indicating if there is an empty result set"
+            "description": "Is this page empty."
           }
         }
       }

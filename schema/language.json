@@ -44,9 +44,19 @@
         "unique": false
       },
       "example": "1554f2e2-a373-45db-a3fa-9fc48a61c15e"
+    },
+    "metadata": {
+      "name": "metadata",
+      "type": "array",
+      "title": "Metadata",
+      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
+      "items": {
+        "$ref": "metadata.json"
+      }
     }
   },
   "required": [
     "id"
-  ]
+  ],
+  "$id": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/language.json"
 }

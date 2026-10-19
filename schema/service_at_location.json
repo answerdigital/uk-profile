@@ -51,6 +51,15 @@
       "title": "Location",
       "description": "The details of the locations where organizations operate. Locations may be virtual, and one organization may have many locations.",
       "$ref": "location.json"
+    },
+    "metadata": {
+      "name": "metadata",
+      "type": "array",
+      "title": "Metadata",
+      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
+      "items": {
+        "$ref": "metadata.json"
+      }
     }
   },
   "required": [
@@ -59,5 +68,6 @@
   "tabular_required": [
     "service_id",
     "location_id"
-  ]
+  ],
+  "$id": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/service_at_location.json"
 }

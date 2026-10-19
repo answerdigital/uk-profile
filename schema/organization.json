@@ -100,6 +100,15 @@
       },
       "example": "cd09a387-91f4-4555-94ec-e799c35344cd"
     },
+    "programs": {
+      "name": "programs",
+      "type": "array",
+      "title": "Programs",
+      "description": "The details of collection of related services.",
+      "items": {
+        "$ref": "program.json"
+      }
+    },
     "organization_identifiers": {
       "name": "organization_identifiers",
       "type": "array",
@@ -117,11 +126,21 @@
       "items": {
         "$ref": "attribute.json"
       }
+    },
+    "metadata": {
+      "name": "metadata",
+      "type": "array",
+      "title": "Metadata",
+      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
+      "items": {
+        "$ref": "metadata.json"
+      }
     }
   },
   "required": [
     "id",
     "name",
     "description"
-  ]
+  ],
+  "$id": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/organization.json"
 }

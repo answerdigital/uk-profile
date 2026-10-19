@@ -62,6 +62,15 @@
       "title": "Taxonomy Term",
       "description": "Each service can be categorized according to one or more taxonomy terms. The taxonomy_term object contains a list of taxonomy terms, their names, and, for hierarchical taxonomies, their structure.",
       "$ref": "taxonomy_term.json"
+    },
+    "metadata": {
+      "name": "metadata",
+      "type": "array",
+      "title": "Metadata",
+      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
+      "items": {
+        "$ref": "metadata.json"
+      }
     }
   },
   "required": [
@@ -71,5 +80,6 @@
     "link_id",
     "taxonomy_term_id",
     "link_entity"
-  ]
+  ],
+  "$id": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/attribute.json"
 }

@@ -34,6 +34,17 @@
       "example": "d9d5e0f5-d3ce-4f73-9a2f-4dd0ecc6c610",
       "core": "Y"
     },
+    "program_id": {
+      "name": "program_id",
+      "type": "string",
+      "title": "Program Identifier",
+      "description": "The identifier of the program this service is delivered under.",
+      "format": "uuid",
+      "constraints": {
+        "unique": false
+      },
+      "example": "e7ec2e57-4540-43fa-b2c7-6be5a0ef7f42"
+    },
     "name": {
       "name": "name",
       "type": "string",
@@ -44,6 +55,16 @@
       },
       "example": "Community Counselling",
       "core": "Y"
+    },
+    "alternate_name": {
+      "name": "alternate_name",
+      "type": "string",
+      "title": "Alternate Name",
+      "description": "An (optional) alternative name for this service.",
+      "constraints": {
+        "unique": false
+      },
+      "example": "MyCity Counselling Services"
     },
     "description": {
       "name": "description",
@@ -97,6 +118,46 @@
         "temporarily closed"
       ]
     },
+    "interpretation_services": {
+      "name": "interpretation_services",
+      "type": "string",
+      "title": "Interpretation Services",
+      "description": "A free text description of any interpretation services available for accessing this service.",
+      "constraints": {
+        "unique": false
+      },
+      "example": "Interpretation services are available in Urdu, Polish, and Slovak"
+    },
+    "application_process": {
+      "name": "application_process",
+      "type": "string",
+      "title": "Application Process",
+      "description": "A free text description of the steps needed to access this service.",
+      "constraints": {
+        "unique": false
+      },
+      "example": "If you are an NHS patient please ask your GP for a referral letter, we will then be in touch with you directly. If you are not an NHS patient you should ring our reception to arrange an appointment"
+    },
+    "fees_description": {
+      "name": "fees_description",
+      "type": "string",
+      "title": "Fees Description",
+      "description": "A free text description of any charges for service users to access this service.",
+      "constraints": {
+        "unique": false
+      },
+      "example": "Non-NHS patients are expected to pay for their counselling sessions. We charge a flat rate per hour of counselling. The current rate is \u00a350 per hour. Please see our website for up to date prices."
+    },
+    "wait_time": {
+      "name": "wait_time",
+      "type": "string",
+      "title": "Wait Time",
+      "description": "DEPRECATED: The time a client may expect to wait before receiving a service.",
+      "constraints": {
+        "unique": false
+      },
+      "example": "wait_time"
+    },
     "fees": {
       "name": "fees",
       "type": "string",
@@ -116,6 +177,17 @@
         "unique": false
       },
       "example": "All of our practitioners are accredited by the BASC, UKCP, and the Professional Standards Body"
+    },
+    "eligibility_description": {
+      "name": "eligibility_description",
+      "type": "string",
+      "title": "Eligibility Description",
+      "description": "A free text description of the type of person for whom this service is intended.",
+      "constraints": {
+        "unique": false
+      },
+      "example": "This service is intended for all people aged 12 and over who require counselling services in the MyCity area",
+      "core": "Y"
     },
     "minimum_age": {
       "name": "minimum_age",
@@ -159,6 +231,16 @@
       },
       "example": "email@example.com"
     },
+    "licenses": {
+      "name": "licenses",
+      "type": "string",
+      "title": "Licenses",
+      "description": "DEPRECATED: An organization may have a license issued by a government entity to operate legally. A list of any such licenses can be provided here.",
+      "constraints": {
+        "unique": false
+      },
+      "example": "licences"
+    },
     "alert": {
       "name": "alert",
       "type": "string",
@@ -180,6 +262,15 @@
         "unique": false
       },
       "example": "2023-03-15T10:30:45.123Z"
+    },
+    "phones": {
+      "name": "phones",
+      "type": "array",
+      "title": "Phones",
+      "description": "The details of the telephone numbers used to contact organizations, services, and locations.",
+      "items": {
+        "$ref": "phone.json"
+      }
     },
     "schedules": {
       "name": "schedules",
@@ -241,6 +332,21 @@
         "$ref": "cost_option.json"
       }
     },
+    "program": {
+      "name": "program",
+      "title": "Program",
+      "description": "The details of collections of related services.",
+      "$ref": "program.json"
+    },
+    "required_documents": {
+      "name": "required_documents",
+      "type": "array",
+      "title": "Required Documents",
+      "description": "The details of any documents that are required in order to access or use services.",
+      "items": {
+        "$ref": "required_document.json"
+      }
+    },
     "contacts": {
       "name": "contacts",
       "type": "array",
@@ -258,6 +364,15 @@
       "items": {
         "$ref": "attribute.json"
       }
+    },
+    "metadata": {
+      "name": "metadata",
+      "type": "array",
+      "title": "Metadata",
+      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
+      "items": {
+        "$ref": "metadata.json"
+      }
     }
   },
   "required": [
@@ -267,5 +382,6 @@
   ],
   "tabular_required": [
     "organization_id"
-  ]
+  ],
+  "$id": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/service.json"
 }
