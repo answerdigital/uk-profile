@@ -56,16 +56,6 @@
       "example": "Community Counselling",
       "core": "Y"
     },
-    "alternate_name": {
-      "name": "alternate_name",
-      "type": "string",
-      "title": "Alternate Name",
-      "description": "An (optional) alternative name for this service.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "MyCity Counselling Services"
-    },
     "description": {
       "name": "description",
       "type": "string",
@@ -118,16 +108,6 @@
         "temporarily closed"
       ]
     },
-    "interpretation_services": {
-      "name": "interpretation_services",
-      "type": "string",
-      "title": "Interpretation Services",
-      "description": "A free text description of any interpretation services available for accessing this service.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "Interpretation services are available in Urdu, Polish, and Slovak"
-    },
     "application_process": {
       "name": "application_process",
       "type": "string",
@@ -137,46 +117,6 @@
         "unique": false
       },
       "example": "If you are an NHS patient please ask your GP for a referral letter, we will then be in touch with you directly. If you are not an NHS patient you should ring our reception to arrange an appointment"
-    },
-    "fees_description": {
-      "name": "fees_description",
-      "type": "string",
-      "title": "Fees Description",
-      "description": "A free text description of any charges for service users to access this service.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "Non-NHS patients are expected to pay for their counselling sessions. We charge a flat rate per hour of counselling. The current rate is \u00a350 per hour. Please see our website for up to date prices."
-    },
-    "wait_time": {
-      "name": "wait_time",
-      "type": "string",
-      "title": "Wait Time",
-      "description": "DEPRECATED: The time a client may expect to wait before receiving a service.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "wait_time"
-    },
-    "fees": {
-      "name": "fees",
-      "type": "string",
-      "title": "Fees",
-      "description": "DEPRECATED: Details of any charges for service users to access this service.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "fees_description"
-    },
-    "accreditations": {
-      "name": "accreditations",
-      "type": "string",
-      "title": "Accreditations",
-      "description": "A free text description of any accreditations. Accreditation is the formal evaluation of an organization or program against best practice standards set by an accrediting organization.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "All of our practitioners are accredited by the BASC, UKCP, and the Professional Standards Body"
     },
     "eligibility_description": {
       "name": "eligibility_description",
@@ -230,16 +170,6 @@
         "unique": false
       },
       "example": "email@example.com"
-    },
-    "licenses": {
-      "name": "licenses",
-      "type": "string",
-      "title": "Licenses",
-      "description": "DEPRECATED: An organization may have a license issued by a government entity to operate legally. A list of any such licenses can be provided here.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "licences"
     },
     "alert": {
       "name": "alert",

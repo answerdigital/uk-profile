@@ -1,6 +1,8 @@
 {
    "properties": {
      "currency": null,
+     "valid_from": null,
+     "valid_to": null,
      "attributes": null
    },
   "required": [

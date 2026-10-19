@@ -1,0 +1,10 @@
+{
+  "properties": {
+    "identifier_scheme": null,
+    "identifier_type": null,
+    "identifier": null
+  },
+  "required": [
+    "id"
+  ]
+}
