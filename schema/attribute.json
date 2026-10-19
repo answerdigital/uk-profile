@@ -57,6 +57,17 @@
       "example": "link_type",
       "core": "Y"
     },
+    "value": {
+      "name": "value",
+      "type": "string",
+      "title": "Value",
+      "description": "The value (if any) of an attribute.",
+      "constraints": {
+        "unique": false
+      },
+      "example": "value",
+      "core": "Y"
+    },
     "taxonomy_term": {
       "name": "taxonomy_term",
       "title": "Taxonomy Term",

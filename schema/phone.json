@@ -22,6 +22,17 @@
       "example": "1554f2e2-a373-45db-a3fa-9fc48a61c15e",
       "core": "Y"
     },
+    "service_id": {
+      "name": "service_id",
+      "type": "string",
+      "title": "Service Identifier",
+      "description": "The identifier of the service for which this is the phone number.",
+      "format": "uuid",
+      "constraints": {
+        "unique": false
+      },
+      "example": "ac148810-d857-441c-9679-408f346de14b"
+    },
     "contact_id": {
       "name": "contact_id",
       "type": "string",
@@ -76,7 +87,8 @@
   },
   "required": [
     "id",
-    "number"
+    "number",
+    "service_id"
   ],
   "$id": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/phone.json"
 }

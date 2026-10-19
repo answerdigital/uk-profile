@@ -56,6 +56,17 @@
       "example": "Reception Manager",
       "core": "Y"
     },
+    "email": {
+      "name": "email",
+      "type": "string",
+      "title": "Email",
+      "description": "The email address of the contact.",
+      "format": "email",
+      "constraints": {
+        "unique": false
+      },
+      "example": "email@example.com"
+    },
     "attributes": {
       "name": "attributes",
       "type": "array",
