@@ -218,15 +218,6 @@
         "$ref": "service_at_location.json"
       }
     },
-    "languages": {
-      "name": "languages",
-      "type": "array",
-      "title": "Languages",
-      "description": "The details of the languages that are spoken at locations or services. This does not include languages which can only be used with interpretation.",
-      "items": {
-        "$ref": "language.json"
-      }
-    },
     "organization": {
       "name": "organization",
       "title": "Organization",
