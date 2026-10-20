@@ -1,5 +1,7 @@
 {
    "properties": {
+     "languages": null,
+     "metadata": null,
      "location_id": null,
      "organization_id": null,
      "service_at_location_id": null,

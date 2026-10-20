@@ -97,26 +97,6 @@
         "temporarily closed"
       ]
     },
-    "fees": {
-      "name": "fees",
-      "type": "string",
-      "title": "Fees",
-      "description": "DEPRECATED: Details of any charges for service users to access this service.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "fees_description"
-    },
-    "accreditations": {
-      "name": "accreditations",
-      "type": "string",
-      "title": "Accreditations",
-      "description": "A free text description of any accreditations. Accreditation is the formal evaluation of an organization or program against best practice standards set by an accrediting organization.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "All of our practitioners are accredited by the BASC, UKCP, and the Professional Standards Body"
-    },
     "minimum_age": {
       "name": "minimum_age",
       "type": "number",
@@ -271,38 +251,6 @@
           },
           "example": "http://example.com",
           "core": "Y"
-        },
-        "logo": {
-          "name": "logo",
-          "type": "string",
-          "title": "Logo",
-          "description": "A URL to an image associated with the organization which can be presented alongside its name.",
-          "constraints": {
-            "unique": false
-          },
-          "example": "https://openreferral.org/wp-content/uploads/2018/02/OpenReferral_Logo_Green-4-1.png"
-        },
-        "uri": {
-          "name": "uri",
-          "type": "string",
-          "title": "URI",
-          "description": "A persistent identifier to uniquely identify the organization such as those provided by Open Corporates or some other relevant URI provider. This is not for listing the website of the organization: that can be done through the website field of the Organization.",
-          "format": "uri",
-          "constraints": {
-            "unique": false
-          },
-          "example": "http://example.com"
-        },
-        "parent_organization_id": {
-          "name": "parent_organization_id",
-          "type": "string",
-          "title": "Parent Organization Identifier",
-          "description": "The identifier of the organization's parent organization.",
-          "format": "uuid",
-          "constraints": {
-            "unique": false
-          },
-          "example": "cd09a387-91f4-4555-94ec-e799c35344cd"
         }
       },
       "required": [

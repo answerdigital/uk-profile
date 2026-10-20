@@ -165,27 +165,6 @@
       "core": "Y",
       "datapackage_type": "time"
     },
-    "schedule_link": {
-      "name": "schedule_link",
-      "type": "string",
-      "title": "Schedule Link",
-      "description": "URL of a link for the schedule which may show each individual session and may provide a booking facility.",
-      "format": "uri",
-      "constraints": {
-        "unique": false
-      },
-      "example": "http://example.com"
-    },
-    "attending_type": {
-      "name": "attending_type",
-      "type": "string",
-      "title": "Attending Type",
-      "description": "A free text description of how to attend this service.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "You can attend this service in-person or remotely via video conferencing"
-    },
     "notes": {
       "name": "notes",
       "type": "string",
@@ -195,15 +174,6 @@
         "unique": false
       },
       "example": "Some of our staff will be unavailable during their lunch break which may be any 30 minute period between 1200 and 1400"
-    },
-    "metadata": {
-      "name": "metadata",
-      "type": "array",
-      "title": "Metadata",
-      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
-      "items": {
-        "$ref": "metadata.json"
-      }
     }
   },
   "required": [

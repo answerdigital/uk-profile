@@ -74,26 +74,6 @@
         "unique": false
       },
       "example": "http://example.com"
-    },
-    "metadata": {
-      "name": "metadata",
-      "type": "array",
-      "title": "Metadata",
-      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
-      "items": {
-        "$ref": "metadata.json"
-      }
-    },
-    "service_area": {
-      "name": "service_area",
-      "type": "string",
-      "title": "Service Area",
-      "description": "A free text geographic area where a service is available.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "The service is available to all residents of the MyCity area. We provide the service in our offices or via video conferencing to any who can provide evidence of their residency.",
-      "core": "Y"
     }
   },
   "required": [

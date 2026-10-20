@@ -1,10 +1,15 @@
 {
    "properties": {
+     "metadata": null,
      "alternate_name": null,
      "tax_status": null,
      "tax_id": null,
      "year_incorporated": null,
      "legal_status": null,
+     "logo": null,
+     "uri": null,
+     "parent_organization_id": null,
+     "organization_identifiers": null,
 	 "locations": null,
 	 "phones": null,
 	 "contacts": null,

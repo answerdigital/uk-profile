@@ -3,6 +3,7 @@
   "path": "attribute.csv",  
   "description":"The other_attributes table creates a link between entities other than service and one or more classifications that describe the entity.",
    "properties": {
+     "metadata": null,
      "link_entity": null
    },
    "allOf": null

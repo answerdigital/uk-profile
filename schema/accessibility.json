@@ -54,46 +54,6 @@
         "unique": false
       },
       "example": "Switch hearing aid to T-coil to access the induction loop facility."
-    },
-    "url": {
-      "name": "url",
-      "type": "string",
-      "title": "URL",
-      "description": "The URL of a page giving more information about the accessibility of the location.",
-      "format": "uri",
-      "constraints": {
-        "unique": false
-      },
-      "example": "http://example.com"
-    },
-    "attributes": {
-      "name": "attributes",
-      "type": "array",
-      "title": "Attributes",
-      "description": "A link between a service and one or more classifications that describe the nature of the service provided.",
-      "items": {
-        "$ref": "attribute.json"
-      }
-    },
-    "metadata": {
-      "name": "metadata",
-      "type": "array",
-      "title": "Metadata",
-      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
-      "items": {
-        "$ref": "metadata.json"
-      }
-    },
-    "accessibility": {
-      "name": "accessibility",
-      "type": "string",
-      "title": "Accessibility",
-      "description": "Description of assistance or infrastructure that facilitate access to clients with disabilities.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "The building is equipped with induction loops for hearing aids. Wheelchair access is possible on all levels.",
-      "core": "Y"
     }
   },
   "required": [

@@ -3,6 +3,7 @@
   "path": "address.csv",  
   "description": "The addresses table contains the physical addresses for locations",  
   "properties": {
+    "metadata": null
   },
    "allOf": null
 }

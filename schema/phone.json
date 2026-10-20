@@ -65,24 +65,6 @@
         "unique": false
       },
       "example": "Our main reception phone number. The phones will be available from 0800 (8am) until 1800 (6pm) local time. There may be some slight delays in answering your call if we are busy."
-    },
-    "languages": {
-      "name": "languages",
-      "type": "array",
-      "title": "Languages",
-      "description": "The details of the languages that are spoken at locations or services. This does not include languages which can only be used with interpretation.",
-      "items": {
-        "$ref": "language.json"
-      }
-    },
-    "metadata": {
-      "name": "metadata",
-      "type": "array",
-      "title": "Metadata",
-      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
-      "items": {
-        "$ref": "metadata.json"
-      }
     }
   },
   "required": [

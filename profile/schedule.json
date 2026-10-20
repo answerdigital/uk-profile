@@ -2,7 +2,10 @@
   "name": "schedule",
   "path": "schedule.csv",  
    "properties": {
+     "metadata": null,
      "location_id": null,
+     "schedule_link": null,
+     "attending_type": null,
      "timezone": null,
      "timezone": null,
      "until": null,

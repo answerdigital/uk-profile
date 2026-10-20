@@ -32,28 +32,6 @@
       },
       "example": "ac148810-d857-441c-9679-408f346de14b"
     },
-    "valid_from": {
-      "name": "valid_from",
-      "type": "string",
-      "title": "Valid From",
-      "description": "The date when this price is valid from.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "2020-01-01",
-      "datapackage_type": "date"
-    },
-    "valid_to": {
-      "name": "valid_to",
-      "type": "string",
-      "title": "Valid To",
-      "description": "The date when this price is valid to.",
-      "constraints": {
-        "unique": false
-      },
-      "example": "2022-12-31",
-      "datapackage_type": "date"
-    },
     "option": {
       "name": "option",
       "type": "string",
@@ -83,15 +61,6 @@
         "unique": false
       },
       "example": "per 1 hour session"
-    },
-    "metadata": {
-      "name": "metadata",
-      "type": "array",
-      "title": "Metadata",
-      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
-      "items": {
-        "$ref": "metadata.json"
-      }
     }
   },
   "required": [

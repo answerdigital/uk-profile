@@ -128,15 +128,6 @@
       "items": {
         "$ref": "attribute.json"
       }
-    },
-    "metadata": {
-      "name": "metadata",
-      "type": "array",
-      "title": "Metadata",
-      "description": "The metadata table contains a record of the changes that have been made to the data in order to maintain provenance information.",
-      "items": {
-        "$ref": "metadata.json"
-      }
     }
   },
   "required": [
