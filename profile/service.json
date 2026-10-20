@@ -11,5 +11,11 @@
     "fees": null,
     "accreditations": null,
     "licenses": null
-  }
+  },
+  "required": [
+    "id",
+    "name",
+    "status",
+    "organization_id"
+  ]
 }

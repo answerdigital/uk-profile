@@ -270,7 +270,8 @@
   "required": [
     "id",
     "name",
-    "status"
+    "status",
+    "organization_id"
   ],
   "tabular_required": [
     "organization_id"
