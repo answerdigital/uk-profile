@@ -1,6 +1,7 @@
 {
    "properties": {
     "service_area": null,
+    "metadata": null,
     "description":null,
     "attributes":null
    },

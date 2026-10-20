@@ -251,17 +251,6 @@
           },
           "example": "http://example.com",
           "core": "Y"
-        },
-        "parent_organization_id": {
-          "name": "parent_organization_id",
-          "type": "string",
-          "title": "Parent Organization Identifier",
-          "description": "The identifier of the organization's parent organization.",
-          "format": "uuid",
-          "constraints": {
-            "unique": false
-          },
-          "example": "cd09a387-91f4-4555-94ec-e799c35344cd"
         }
       },
       "required": [

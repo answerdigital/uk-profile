@@ -3,6 +3,8 @@
   "path": "accessibility.csv",  
    "properties": {
      "accessibility": null,
+     "metadata": null,
+     "attributes": null,
      "url": null
    },
    "allOf": null

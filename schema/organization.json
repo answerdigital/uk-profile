@@ -68,17 +68,6 @@
       "example": "http://example.com",
       "core": "Y"
     },
-    "parent_organization_id": {
-      "name": "parent_organization_id",
-      "type": "string",
-      "title": "Parent Organization Identifier",
-      "description": "The identifier of the organization's parent organization.",
-      "format": "uuid",
-      "constraints": {
-        "unique": false
-      },
-      "example": "cd09a387-91f4-4555-94ec-e799c35344cd"
-    },
     "programs": {
       "name": "programs",
       "type": "array",
@@ -88,15 +77,6 @@
         "$ref": "program.json"
       }
     },
-    "organization_identifiers": {
-      "name": "organization_identifiers",
-      "type": "array",
-      "title": "Organization Identifiers",
-      "description": "The details of the third party identifiers for organizations, such as: company registration number, charity number, tax registration number.",
-      "items": {
-        "$ref": "organization_identifier.json"
-      }
-    },
     "attributes": {
       "name": "attributes",
       "type": "array",
@@ -104,15 +84,6 @@
       "description": "A link between a service and one or more classifications that describe the nature of the service provided.",
       "items": {
         "$ref": "attribute.json"
-      }
-    },
-    "metadata": {
-      "name": "metadata",
-      "type": "array",
-      "title": "Metadata",
-      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
-      "items": {
-        "$ref": "metadata.json"
       }
     }
   },

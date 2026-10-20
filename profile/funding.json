@@ -1,11 +1,1 @@
-{
-   "properties": {
-     "organization_id": null,
-     "source": null,
-     "attributes": null
-   },
-  "required": [
-    "id"
-  ],
-   "allOf": null
-}
+null

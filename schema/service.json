@@ -34,17 +34,6 @@
       "example": "d9d5e0f5-d3ce-4f73-9a2f-4dd0ecc6c610",
       "core": "Y"
     },
-    "program_id": {
-      "name": "program_id",
-      "type": "string",
-      "title": "Program Identifier",
-      "description": "The identifier of the program this service is delivered under.",
-      "format": "uuid",
-      "constraints": {
-        "unique": false
-      },
-      "example": "e7ec2e57-4540-43fa-b2c7-6be5a0ef7f42"
-    },
     "name": {
       "name": "name",
       "type": "string",
@@ -244,15 +233,6 @@
       "description": "The details about each organization delivering services. Each service should be linked to the organization responsible for its delivery. One organization may deliver many services.",
       "$ref": "organization.json"
     },
-    "funding": {
-      "name": "funding",
-      "type": "array",
-      "title": "Funding",
-      "description": "The sources of funding for a service or organization.",
-      "items": {
-        "$ref": "funding.json"
-      }
-    },
     "cost_options": {
       "name": "cost_options",
       "type": "array",
@@ -293,15 +273,6 @@
       "description": "A link between a service and one or more classifications that describe the nature of the service provided.",
       "items": {
         "$ref": "attribute.json"
-      }
-    },
-    "metadata": {
-      "name": "metadata",
-      "type": "array",
-      "title": "Metadata",
-      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
-      "items": {
-        "$ref": "metadata.json"
       }
     }
   },

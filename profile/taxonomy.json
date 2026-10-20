@@ -1,5 +1,6 @@
 {
    "properties": {
+     "metadata": null,
       "taxonomy_terms": {
       "name": "taxonomy_terms",
       "type": "array",
