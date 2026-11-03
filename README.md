@@ -12,23 +12,23 @@ When you are finished, you should replace the contents of this README with conte
 
 ### View the UK profile in Swagger UI
 
-With Docker running, build and start the Swagger UI container from PowerShell:
+With Docker running, build and start the Swagger UI container on Windows:
 
-```powershell
-.\start.ps1
+```bat
+.\start.bat
 ```
 
 Open <http://localhost:8080>. To use a different local port:
 
-```powershell
-.\start.ps1 -Port 8081
+```bat
+.\start.bat 8081
 ```
 
 The script builds the `uk-profile-swagger` image and starts a container with the
 same name, bound to localhost only. Stop it with `docker stop uk-profile-swagger`;
 the stopped container is automatically removed. Stop the existing container
-before running the script again. `-ImageName` and `-ContainerName` can be used to
-choose different names.
+before running the script again. Optional arguments are
+`start.bat [port] [container-name] [image-name]`.
 
 Alternatively, on any platform with Docker:
 
