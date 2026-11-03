@@ -67,15 +67,6 @@
       },
       "example": "http://example.com",
       "core": "Y"
-    },
-    "programs": {
-      "name": "programs",
-      "type": "array",
-      "title": "Programs",
-      "description": "The details of collection of related services.",
-      "items": {
-        "$ref": "program.json"
-      }
     }
   },
   "required": [

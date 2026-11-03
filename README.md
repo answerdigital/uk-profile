@@ -10,6 +10,46 @@ When you are finished, you should replace the contents of this README with conte
 
 ## Getting Started
 
+### View the UK profile in Swagger UI
+
+With Docker running, build and start the Swagger UI container from PowerShell:
+
+```powershell
+.\start.ps1
+```
+
+Open <http://localhost:8080>. To use a different local port:
+
+```powershell
+.\start.ps1 -Port 8081
+```
+
+The script builds the `uk-profile-swagger` image and starts a container with the
+same name, bound to localhost only. Stop it with `docker stop uk-profile-swagger`;
+the stopped container is automatically removed. Stop the existing container
+before running the script again. `-ImageName` and `-ContainerName` can be used to
+choose different names.
+
+Alternatively, on any platform with Docker:
+
+```text
+docker build -t uk-profile-swagger .
+docker run --rm -p 127.0.0.1:8080:8080 uk-profile-swagger
+```
+
+The image serves the generated [API definition](schema/openapi.json) and all
+local [schemas](schema/), not the partial overrides in [profile/](profile/).
+References to the profile's published schemas are rewritten to local URLs in
+the image only. No schema generation or Python dependencies are required.
+After regenerating the schemas, rebuild the image to include the changes.
+
+This serves documentation, not an API implementation: "Try it out" and the
+external Swagger validator are disabled. The profile excludes programs and
+required documents, so its overrides also remove the nested properties that
+would otherwise reference those excluded schemas.
+
+### Create a profile from this template
+
 To create a Profile based on this template you should do the following:
 
 1. Clone, Fork, or download this repository [as a zip file](https://github.com/openreferral/hsds_example_profile/archive/main.zip)

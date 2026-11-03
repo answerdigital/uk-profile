@@ -233,21 +233,6 @@
         "$ref": "cost_option.json"
       }
     },
-    "program": {
-      "name": "program",
-      "title": "Program",
-      "description": "The details of collections of related services.",
-      "$ref": "program.json"
-    },
-    "required_documents": {
-      "name": "required_documents",
-      "type": "array",
-      "title": "Required Documents",
-      "description": "The details of any documents that are required in order to access or use services.",
-      "items": {
-        "$ref": "required_document.json"
-      }
-    },
     "contacts": {
       "name": "contacts",
       "type": "array",
