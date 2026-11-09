@@ -13,8 +13,40 @@
   },
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "paths": {
-    "/organizations": null,
-    "/organizations/{id}": null,
+    "/organizations": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": null,
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Page"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "contents": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "organization.json"
+                          }
+                        }
+                      },
+                      "required": [
+                        "contents"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/services": {
       "get": {
         "parameters": [

@@ -324,6 +324,99 @@
         }
       }
     },
+    "/organizations/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "The id of the organization that the request is intended to retrieve.",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "description": "Fully nested organization with service array that contains simple information which could only contain the service.id.",
+        "summary": "Fully nested organization with service array that contains simple information which could only contain the service.id.",
+        "operationId": "getOrganizationById",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/full_service"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fully nested organization with service array that contains simple information which could only contain the service.id.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/organization.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/organizations": {
+      "get": {
+        "description": "Paginated list of basic Organization information.",
+        "summary": "Paginated list of basic Organization information",
+        "operationId": "getPaginatedListOfOrganizations",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "$ref": "#/components/parameters/full_service"
+          },
+          {
+            "description": "Contains full nested organization information",
+            "$ref": "#/components/parameters/full"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/per_page"
+          },
+          {
+            "$ref": "#/components/parameters/format"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated list of basic Organization information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Page"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "contents": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/organization.json"
+                          }
+                        }
+                      },
+                      "required": [
+                        "contents"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/service_at_locations/{id}": {
       "parameters": [
         {
